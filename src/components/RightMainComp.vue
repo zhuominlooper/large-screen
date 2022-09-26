@@ -1,31 +1,65 @@
 <template>
-  <div class="left-main">
-    <div class="panel">
-      <h2 class="h2">柱状图</h2>
-      <div class="echarts">11</div>
+  <div class="right-main">
+    <div class="panel" v-loading="isLoading">
+      <h2 class="h2">签票成功率</h2>
+      <div class="echarts" ref='view0'>11</div>
       <div class="footer"></div>
     </div>
-    <div class="panel">
-     <h2 class="h2">柱状图</h2>
-      <div class="echarts">11</div>
+    <div class="panel" v-loading="isLoading">
+     <h2 class="h2">飞行时间段</h2>
+      <div class="echarts" ref='view1'></div>
       <div class="footer"></div>
     </div>
-    <div class="panel">
-     <h2 class="h2">柱状图</h2>
-      <div class="echarts">11</div>
+    <div class="panel" v-loading="isLoading">
+     <h2 class="h2">交通载客比率</h2>
+      <div class="echarts" ref='view2'>11</div>
       <div class="footer"></div>
     </div>
   </div>
 </template>
 
 <script>
+import {getRightEchartsData} from '@/api'
+import * as echarts from 'echarts'
+import  'echarts-liquidfill'
 export default {
   name: 'LeftMainCompPage',
+  data () {
+    return {
+      isLoading:false,
+    }
+  },
+  created () {
+    this.getAllData() 
+  },
+  methods: {
+    getAllData(){
+      this.isLoading=true
+   getRightEchartsData().then(res=>{
+         if(res){
+          res.forEach((item,index)=>{
+            this.renderEcharts(item,index)
+          })
+         }
+      }).finally(()=>{
+         this.isLoading=false
+      })
+    },
+    renderEcharts(item,index){
+      let chartDom = this.$refs[`view${index}`]
+      let myChart = echarts.init(chartDom)
+      myChart.setOption(item)
+      //echarts自适应
+      window.addEventListener('resize', () => {
+        myChart.resize()
+      })
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.left-main {
+.right-main {
   .panel {
     height: 3.25rem;
     border: 1px solid rgba(25, 286, 239, 0.17);

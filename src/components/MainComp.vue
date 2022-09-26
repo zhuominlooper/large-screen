@@ -23,13 +23,12 @@ export default {
 <style lang='scss' scoped>
     .section{
       display: flex;
-      flex-wrap: wrap;
       margin: 0px .25rem;
       .column{
         flex: 3;
       }
       .column:nth-child(2){
-        flex: 6;
+        flex: 7;
       }
     }
 </style>

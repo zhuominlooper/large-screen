@@ -1,3 +1,4 @@
+//界面左边的数据
 export const getLeftEchartsData = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -92,6 +93,232 @@ export const getLeftEchartsData = () => {
               smooth: true,
               type: 'line',
               data: [220, 632, 401, 634],
+            },
+          ],
+        },
+      ])
+    }, 1000)
+  })
+}
+
+//界面右边的数据
+export const getRightEchartsData = () => {
+  return new Promise((resolve) => {
+    let color = ['#1089E7', '#F57575', '#56D0E3', '#F8B448', '#8B786F']
+    setTimeout(() => {
+      resolve([
+        {
+          grid: {
+            left: '16%',
+            top: '10%',
+            bottom: '10%',
+            // containLabel:true
+          },
+          xAxis: {
+            show: false,
+          },
+          yAxis: [
+            {
+              type: 'category',
+              data: ['成都', '北京', '上海', '西藏', '湖南'],
+              axisLine: {
+                show: false,
+              },
+              axisTick: {
+                show: false,
+              },
+              axisLabel: {
+                color: '#fff',
+              },
+            },
+            {
+              type: 'category',
+              data: ['980000', '940000', '880000', '787000', '726000'],
+              axisLine: {
+                show: false,
+              },
+              axisTick: {
+                show: false,
+              },
+              axisLabel: {
+                color: '#fff',
+              },
+            },
+          ],
+          series: [
+            {
+              name: '条',
+              type: 'bar',
+              data: [98, 94, 88, 78.7, 72.6],
+              barWidth: 15,
+              yAxisIndex: 0,
+              itemStyle: {
+                barBorderRadius: 20,
+                color: function (params) {
+                  return color[params.dataIndex]
+                },
+              },
+              label: {
+                normal: {
+                  show: true,
+                  color: '#fff',
+                  position: 'inside',
+                  formatter: '{c}%',
+                },
+              },
+            },
+            {
+              name: '框',
+              type: 'bar',
+              barWidth: 22,
+              data: [100, 100, 100, 100, 100],
+              yAxisIndex: 1,
+              itemStyle: {
+                color: 'none',
+                borderColor: '#00c1de',
+                borderWidth: 3,
+                barBorderRadius: 15,
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            shoe: false,
+          },
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              label: {
+                backgroundColor: '#6a7985',
+              },
+            },
+          },
+          legend: {
+            show: false,
+          },
+          grid: {
+            left: '8%',
+            right: '8%',
+            bottom: '3%',
+            containLabel: true,
+          },
+          xAxis: [
+            {
+              axisLabel: {
+                color: '#fff',
+              },
+              type: 'category',
+              boundaryGap: false,
+              data: ['1-2小时', '2-3小时', '3-4小时', '5-8小时', '8小时以上'],
+            },
+          ],
+          yAxis: [
+            {
+              axisLabel: {
+                color: '#fff',
+              },
+              splitLine: {
+                show: false,
+              },
+              type: 'value',
+            },
+          ],
+          series: [
+            {
+              name: '成都',
+              type: 'line',
+              areaStyle: {},
+              emphasis: {
+                focus: 'series',
+              },
+              smooth: true,
+              data: [120, 132, 101, 734, 990],
+            },
+            {
+              name: '上海',
+              type: 'line',
+              areaStyle: {},
+              emphasis: {
+                focus: 'series',
+              },
+              smooth: true,
+              data: [320, 182, 891, 534, 1290],
+            },
+            {
+              name: '北京',
+              type: 'line',
+              areaStyle: {},
+              emphasis: {
+                focus: 'series',
+              },
+              smooth: true,
+              data: [450, 932, 701, 454, 890],
+            },
+            {
+              name: '西藏',
+              type: 'line',
+              areaStyle: {},
+              emphasis: {
+                focus: 'series',
+              },
+              smooth: true,
+              data: [720, 832, 301, 834, 1390],
+            },
+          ],
+        },
+
+        {
+          title: {
+            text: '42.434%',
+            textStyle: {
+              fontSize: 20,
+              fontWeight: 'normal',
+              color: '#fff',
+            },
+            x: 'center',
+            y: 'center',
+          },
+          series: [
+            {
+              type: 'liquidFill',
+              waveAnimation: 20,
+              data: [0.48, 0.43],
+              color: ['rgb(77,95,202)', '#1089E7'],
+              amplitude: 25,
+              radius: '90%',
+              backgroundStyle: {
+                color: {
+                  type: 'radial',
+                  x: 0.5,
+                  y: 0.5,
+                  r: 0.85,
+                  colorStops: [
+                    {
+                      offset: 0.5,
+                      color: 'rgb(11,27,52)', // 0% 处的颜色
+                    },
+                    {
+                      offset: 0.75,
+                      color: 'rgb(27,41,83)', // 100% 处的颜色
+                    },
+                    {
+                      offset: 0.95,
+                      color: 'rgb(53,63,135)', // 100% 处的颜色
+                    },
+                  ],
+                  globalCoord: false, // 缺省为 false
+                },
+              },
+              outline: {
+                show: false,
+              },
+              label: {
+                normal: {
+                  formatter: '',
+                },
+              },
             },
           ],
         },

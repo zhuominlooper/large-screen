@@ -51,15 +51,12 @@ export default {
       let chartDom = this.$refs[`echart${data.index}`]
       let myChart = echarts.init(chartDom)
       let option = {
-        textStyle: {
-          color: '#fff',
-        },
         title: {
           text: '',
           show: false,
         },
-        tooltip:data.tooltip,
-        legend:data.legend,
+        tooltip: data.tooltip,
+        legend: data.legend,
         grid: {
           left: '6%',
           right: '6%',
@@ -67,6 +64,9 @@ export default {
           containLabel: true,
         },
         xAxis: {
+            axisLabel: {
+                color: '#fff',
+              },
           splitLine: {
             show: false,
           },
@@ -75,6 +75,9 @@ export default {
           data: data.xAxis,
         },
         yAxis: {
+            axisLabel: {
+                color: '#fff',
+              },
           splitLine: {
             show: false,
           },
@@ -82,8 +85,11 @@ export default {
         },
         series: data.series,
       }
-
       option && myChart.setOption(option)
+      //echarts自适应
+      window.addEventListener('resize', () => {
+        myChart.resize()
+      })
     },
   },
 }
