@@ -1,7 +1,22 @@
 {
   "name": "large-screen",
-  "version": "0.1.1",
+  "version": "1.1.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhuominlooper/large-screen"
+  },
+  "issues": "https://github.com/zhuominlooper/large-screen/issues",
+  "keywords": [
+    "vue",
+    "http",
+    "axios",
+    "promise",
+    "echarts",
+    "flexible"
+  ],
+  "author": "looper zhuo",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

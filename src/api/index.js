@@ -1,4 +1,5 @@
 //界面左边的数据
+    let color = ['#1089E7', '#F57575', '#56D0E3', '#F8B448', '#8B786F']
 export const getLeftEchartsData = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -16,6 +17,7 @@ export const getLeftEchartsData = () => {
           xAxis: ['Mon', 'Wed', 'Fri', 'Sun'],
           series: [
             {
+              
               name: '成都',
               type: 'bar',
               data: [3453, 3053, 3653, 4453],
@@ -45,6 +47,11 @@ export const getLeftEchartsData = () => {
           },
           series: [
             {
+              itemStyle: {
+                color: function (params) {
+                  return color[params.dataIndex]
+                },
+              },
               name: '航班数量',
               type: 'pie',
               radius: '50%',
@@ -71,6 +78,7 @@ export const getLeftEchartsData = () => {
           xAxis: ['Mon', 'Wed', 'Fri', 'Sun'],
           series: [
             {
+              
               name: '成都',
               smooth: true,
               type: 'line',
@@ -104,7 +112,6 @@ export const getLeftEchartsData = () => {
 //界面右边的数据
 export const getRightEchartsData = () => {
   return new Promise((resolve) => {
-    let color = ['#1089E7', '#F57575', '#56D0E3', '#F8B448', '#8B786F']
     setTimeout(() => {
       resolve([
         {
@@ -271,7 +278,7 @@ export const getRightEchartsData = () => {
 
         {
           title: {
-            text: '42.434%',
+            text: '62.4%',
             textStyle: {
               fontSize: 20,
               fontWeight: 'normal',
@@ -284,8 +291,8 @@ export const getRightEchartsData = () => {
             {
               type: 'liquidFill',
               waveAnimation: 20,
-              data: [0.48, 0.43],
-              color: ['rgb(77,95,202)', '#1089E7'],
+              data: [0.68, 0.53],
+              color: ['rgb(77,155,202)', '#F8B448'],
               amplitude: 25,
               radius: '90%',
               backgroundStyle: {
@@ -311,8 +318,105 @@ export const getRightEchartsData = () => {
                   globalCoord: false, // 缺省为 false
                 },
               },
-              outline: {
-                show: false,
+              label: {
+                normal: {
+                  formatter: '',
+                },
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            text: '42.434%',
+            textStyle: {
+              fontSize: 20,
+              fontWeight: 'normal',
+              color: '#fff',
+            },
+            x: 'center',
+            y: 'center',
+          },
+          series: [
+            {
+              type: 'liquidFill',
+              waveAnimation: 20,
+              data: [0.48, 0.43],
+              color: ['rgb(77,95,202)', '#F8B448'],
+              amplitude: 25,
+              radius: '90%',
+              backgroundStyle: {
+                color: {
+                  type: 'radial',
+                  x: 0.5,
+                  y: 0.5,
+                  r: 0.85,
+                  colorStops: [
+                    {
+                      offset: 0.5,
+                      color: 'rgb(11,27,52)', // 0% 处的颜色
+                    },
+                    {
+                      offset: 0.75,
+                      color: 'rgb(27,41,83)', // 100% 处的颜色
+                    },
+                    {
+                      offset: 0.95,
+                      color: 'rgb(53,63,135)', // 100% 处的颜色
+                    },
+                  ],
+                  globalCoord: false, // 缺省为 false
+                },
+              },
+              label: {
+                normal: {
+                  formatter: '',
+                },
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            text: '22.467%',
+            textStyle: {
+              fontSize: 20,
+              fontWeight: 'normal',
+              color: '#fff',
+            },
+            x: 'center',
+            y: 'center',
+          },
+          series: [
+            {
+              type: 'liquidFill',
+              waveAnimation: 20,
+              data: [0.28, 0.23],
+              color: ['#F57575', '#F8B448'],
+              amplitude: 25,
+              radius: '90%',
+              backgroundStyle: {
+                color: {
+                  type: 'radial',
+                  x: 0.5,
+                  y: 0.5,
+                  r: 0.85,
+                  colorStops: [
+                    {
+                      offset: 0.5,
+                      color: 'rgb(11,27,52)', // 0% 处的颜色
+                    },
+                    {
+                      offset: 0.75,
+                      color: 'rgb(27,41,83)', // 100% 处的颜色
+                    },
+                    {
+                      offset: 0.95,
+                      color: 'rgb(53,63,135)', // 100% 处的颜色
+                    },
+                  ],
+                  globalCoord: false, // 缺省为 false
+                },
               },
               label: {
                 normal: {

@@ -2,7 +2,7 @@
   <div class="right-main">
     <div class="panel" v-loading="isLoading">
       <h2 class="h2">签票成功率</h2>
-      <div class="echarts" ref='view0'>11</div>
+      <div class="echarts" ref='view0'></div>
       <div class="footer"></div>
     </div>
     <div class="panel" v-loading="isLoading">
@@ -12,7 +12,11 @@
     </div>
     <div class="panel" v-loading="isLoading">
      <h2 class="h2">交通载客比率</h2>
-      <div class="echarts" ref='view2'>11</div>
+     <div class="echarts div-comp" >
+       <div  ref='view2' style="flex:1"></div>
+       <div  ref='view3' style="flex:1"></div>
+        <div  ref='view4' style="flex:1"></div>
+     </div>
       <div class="footer"></div>
     </div>
   </div>
@@ -60,6 +64,9 @@ export default {
 
 <style lang="scss" scoped>
 .right-main {
+  .div-comp{
+    display: flex;
+  }
   .panel {
     height: 3.25rem;
     border: 1px solid rgba(25, 286, 239, 0.17);
