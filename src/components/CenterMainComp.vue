@@ -14,11 +14,19 @@
         </ul>
       </div>
     </div>
+
     <div class="map">
       <div class="map1"></div>
       <div class="map2"></div>
       <div class="map3"></div>
       <div class="map-chat" ref="myMap"></div>
+    </div>
+    <div class="footer">
+      <div class="tag">
+        <div class="tag-top">
+          <scrollTableComp></scrollTableComp>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -26,8 +34,17 @@
 <script>
 import * as echarts from 'echarts'
 import 'echarts/map/js/china.js'
+import scrollTableComp from './scrollTable.vue'
 export default {
-  mounted() {
+  components: {
+    scrollTableComp
+  },
+  methods: {
+    tableColor () {
+      return 'background: red'
+    },
+  },
+  mounted () {
     let chartDom = this.$refs[`myMap`]
     let myChart = echarts.init(chartDom)
     let geoCoordMap = {
@@ -172,11 +189,11 @@ export default {
       [{ name: '银川' }, { name: '上海', value: 100 }],
       [{ name: '银川' }, { name: '西安', value: 100 }],
       [{ name: '银川' }, { name: '西宁', value: 100 }],
-        [{ name: '北京' }, { name: '深圳', value: 100 }],
-        [{ name: '成都' }, { name: '深圳', value: 100 }],
-          [{ name: '拉萨' }, { name: '深圳', value: 100 }],
-          [{ name: '深圳' }, { name: '乌鲁木齐', value: 100 }],
-           [{ name: '哈尔滨' }, { name: '乌鲁木齐', value: 100 }],
+      [{ name: '北京' }, { name: '深圳', value: 100 }],
+      [{ name: '成都' }, { name: '深圳', value: 100 }],
+      [{ name: '拉萨' }, { name: '深圳', value: 100 }],
+      [{ name: '深圳' }, { name: '乌鲁木齐', value: 100 }],
+      [{ name: '哈尔滨' }, { name: '乌鲁木齐', value: 100 }],
     ]
 
     let planePath =
@@ -202,90 +219,90 @@ export default {
 
     let color = ['#a6c84c', '#ffa022', '#46bee9'] //航线的颜色
     let series = []
-    ;[
-      ['西安', XAData],
-      ['西宁', XNData],
-      ['银川', YCData],
-    ].forEach(function (item, i) {
-      series.push(
-        {
-          name: item[0] + ' Top3',
-          type: 'lines',
-          zlevel: 1,
-          effect: {
-            show: true,
-            period: 6,
-            trailLength: 0.7,
-            color: 'red', //arrow箭头的颜色
-            symbolSize: 3,
-          },
-          lineStyle: {
-            normal: {
-              color: color[i],
-              width: 0,
-              curveness: 0.2,
-            },
-          },
-          data: convertData(item[1]),
-        },
-        {
-          name: item[0] + ' Top3',
-          type: 'lines',
-          zlevel: 2,
-          symbol: ['none', 'arrow'],
-          symbolSize: 10,
-          effect: {
-            show: true,
-            period: 6,
-            trailLength: 0,
-            symbol: planePath,
-            symbolSize: 15,
-          },
-          lineStyle: {
-            normal: {
-              color: color[i],
-              width: 1,
-              opacity: 0.6,
-              curveness: 0.2,
-            },
-          },
-          data: convertData(item[1]),
-        },
-        {
-          name: item[0] + ' Top3',
-          type: 'effectScatter',
-          coordinateSystem: 'geo',
-          zlevel: 2,
-          rippleEffect: {
-            brushType: 'stroke',
-          },
-          label: {
-            normal: {
+      ;[
+        ['西安', XAData],
+        ['西宁', XNData],
+        ['银川', YCData],
+      ].forEach(function (item, i) {
+        series.push(
+          {
+            name: item[0] + ' Top3',
+            type: 'lines',
+            zlevel: 1,
+            effect: {
               show: true,
-              position: 'right',
-              formatter: '{b}',
+              period: 6,
+              trailLength: 0.7,
+              color: 'red', //arrow箭头的颜色
+              symbolSize: 3,
             },
-          },
-          symbolSize: function (val) {
-            return val[2] / 8
-          },
-          itemStyle: {
-            normal: {
-              color: color[i],
+            lineStyle: {
+              normal: {
+                color: color[i],
+                width: 0,
+                curveness: 0.2,
+              },
             },
-            emphasis: {
-              areaColor: '#2B91B7',
-            },
+            data: convertData(item[1]),
           },
-          data: item[1].map(function (dataItem) {
-            return {
-              name: dataItem[1].name,
-              value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value]),
-            }
-          }),
-        }
-      )
-    })
+          {
+            name: item[0] + ' Top3',
+            type: 'lines',
+            zlevel: 2,
+            symbol: ['none', 'arrow'],
+            symbolSize: 10,
+            effect: {
+              show: true,
+              period: 6,
+              trailLength: 0,
+              symbol: planePath,
+              symbolSize: 15,
+            },
+            lineStyle: {
+              normal: {
+                color: color[i],
+                width: 1,
+                opacity: 0.6,
+                curveness: 0.2,
+              },
+            },
+            data: convertData(item[1]),
+          },
+          {
+            name: item[0] + ' Top3',
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            zlevel: 2,
+            rippleEffect: {
+              brushType: 'stroke',
+            },
+            label: {
+              normal: {
+                show: true,
+                position: 'right',
+                formatter: '{b}',
+              },
+            },
+            symbolSize: function (val) {
+              return val[2] / 8
+            },
+            itemStyle: {
+              normal: {
+                color: color[i],
+              },
+              emphasis: {
+                areaColor: '#2B91B7',
+              },
+            },
+            data: item[1].map(function (dataItem) {
+              return {
+                name: dataItem[1].name,
+                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value]),
+              }
+            }),
+          }
+        )
+      })
     let option = {
       title: {
         text: '实时飞行航线轨迹',
@@ -338,7 +355,7 @@ export default {
           },
         },
         // 把中国地图放大了1.2倍
-        zoom: 1.25,
+        zoom: 1,
         roam: true,
         itemStyle: {
           normal: {
@@ -366,12 +383,15 @@ export default {
 <style lang="scss" scoped>
 .center {
   margin: 0 0.2rem;
+
   .tag {
     background: rgba(101, 132, 226, 0.1);
-    padding: 0.1875rem;
+    padding: 0.1rem;
+
     .tag-top {
       position: relative;
       border: 1px solid rgba(25, 186, 139, 0.17);
+
       &::before {
         position: absolute;
         top: 0;
@@ -382,6 +402,7 @@ export default {
         border-top: 2px solid #02a6b5;
         border-left: 2px solid #02a6b5;
       }
+
       &::after {
         position: absolute;
         bottom: 0;
@@ -392,17 +413,20 @@ export default {
         border-right: 2px solid #02a6b5;
         border-bottom: 2px solid #02a6b5;
       }
+
       ul {
         list-style: none;
         display: flex;
+
         li {
           position: relative;
           flex: 1;
-          line-height: 1rem;
+          line-height: 0.7rem;
           font-size: 0.5rem;
           color: #ffeb7b;
           text-align: center;
           font-family: 'electronicFont';
+
           &::after {
             content: '';
             position: absolute;
@@ -416,10 +440,12 @@ export default {
         }
       }
     }
+
     .tag-bottom {
       ul {
         list-style: none;
         display: flex;
+
         li {
           flex: 1;
           text-align: center;
@@ -433,12 +459,14 @@ export default {
     }
   }
 }
+
 .map {
   position: relative;
   height: 8.2rem;
+
   .map1 {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -448,13 +476,14 @@ export default {
     background-size: 100% 100%;
     opacity: 0.3;
   }
+
   .map2 {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 7.5rem;
-    width: 7.5rem;
+    height: 6.5rem;
+    width: 6.5rem;
     background-image: url('../assets/lbx.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -464,13 +493,14 @@ export default {
     animation-timing-function: linear;
     opacity: 0.6;
   }
+
   .map3 {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 6rem;
-    width: 6rem;
+    height: 5rem;
+    width: 5rem;
     background-image: url('../assets/jt.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -479,6 +509,7 @@ export default {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
+
   .map-chat {
     position: absolute;
     left: 0;
@@ -492,17 +523,28 @@ export default {
     0% {
       transform: translate(-50%, -50%) rotate(0deg);
     }
+
     100% {
       transform: translate(-50%, -50%) rotate(360deg);
     }
   }
+
   @keyframes rotate2 {
     0% {
       transform: translate(-50%, -50%) rotate(0deg);
     }
+
     100% {
       transform: translate(-50%, -50%) rotate(-360deg);
     }
+  }
+}
+
+.footer {
+  .tag {
+    background: rgba(101, 132, 226, 0.1);
+    padding: 0.1rem;
+    margin-top: -1.6875rem;
   }
 }
 </style>
