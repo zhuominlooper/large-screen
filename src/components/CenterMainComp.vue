@@ -541,10 +541,12 @@ export default {
 }
 
 .footer {
+  position: relative;
+  bottom: 1.8rem;
+
   .tag {
     background: rgba(101, 132, 226, 0.1);
     padding: 0.1rem;
-    margin-top: -1.6875rem;
   }
 }
 </style>
