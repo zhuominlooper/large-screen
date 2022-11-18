@@ -1,19 +1,33 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(185, 185, 185);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(236, 235, 235);
 }
 @font-face {
   font-family: electronicFont;
   src: url(./font/DS-DIGIT.TTF);
 }
-body{
-  background-image: url('./assets/bg.jpg');
-  height: 100%;
+body {
+  background-image: linear-gradient(to bottom right, #1b1b1b, rgb(0, 0, 0));
+  /* background-image: url('./assets/bg.jpg');
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100% 100%;
+  background-size: auto;
+  object-fit: fill; */
   line-height: 1.15;
-  height: 100vh;
-  overflow-y: hidden;
+  min-width: 1440px;
 }

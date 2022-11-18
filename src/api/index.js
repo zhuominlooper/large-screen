@@ -1,5 +1,5 @@
 //界面左边的数据
-    let color = ['#1089E7', '#F57575', '#56D0E3', '#F8B448', '#8B786F']
+let color = ['#1089E7', '#F57575', '#56D0E3', '#F8B448', '#8B786F']
 export const getLeftEchartsData = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -17,7 +17,6 @@ export const getLeftEchartsData = () => {
           xAxis: ['Mon', 'Wed', 'Fri', 'Sun'],
           series: [
             {
-              
               name: '成都',
               type: 'bar',
               data: [3453, 3053, 3653, 4453],
@@ -78,7 +77,6 @@ export const getLeftEchartsData = () => {
           xAxis: ['Mon', 'Wed', 'Fri', 'Sun'],
           series: [
             {
-              
               name: '成都',
               smooth: true,
               type: 'line',
@@ -116,10 +114,11 @@ export const getRightEchartsData = () => {
       resolve([
         {
           grid: {
-            left: '16%',
-            top: '10%',
-            bottom: '10%',
-            // containLabel:true
+            left: '4%',
+            top: '4%',
+            bottom: '4%',
+            right: '4%',
+            containLabel: true,
           },
           xAxis: {
             show: false,
@@ -206,9 +205,10 @@ export const getRightEchartsData = () => {
             show: false,
           },
           grid: {
+            top: '8%',
             left: '8%',
             right: '8%',
-            bottom: '3%',
+            bottom: '8%',
             containLabel: true,
           },
           xAxis: [

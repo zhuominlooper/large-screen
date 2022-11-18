@@ -542,7 +542,7 @@ export default {
 
 .footer {
   position: relative;
-  bottom: 1.8rem;
+  bottom: 1.4rem;
 
   .tag {
     background: rgba(101, 132, 226, 0.1);
