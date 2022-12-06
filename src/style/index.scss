@@ -19,15 +19,5 @@
 }
 @font-face {
   font-family: electronicFont;
-  src: url(./font/DS-DIGIT.TTF);
-}
-body {
-  background-image: linear-gradient(to bottom right, #1b1b1b, rgb(0, 0, 0));
-  /* background-image: url('./assets/bg.jpg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: auto;
-  object-fit: fill; */
-  line-height: 1.15;
-  min-width: 1440px;
+  src: url(../font/DS-DIGIT.TTF);
 }

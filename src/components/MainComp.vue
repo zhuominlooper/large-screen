@@ -29,7 +29,7 @@ export default {
 <style lang='scss' scoped>
 .section {
   display: flex;
-  margin: 0px .25rem;
+  margin: 0 0.25rem;
 
   .column {
     flex: 3;

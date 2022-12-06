@@ -1,0 +1,45 @@
+@import './themes.scss';
+//切换主题时 获取不同的主题色值
+@mixin themeify {
+  @each $theme-name, $theme-map in $themes {
+    //!global 把局部变量强升为全局变量
+    $theme-map: $theme-map !global;
+    //判断html的data-theme的属性值  #{}是sass的插值表达式
+    //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot
+    [data-theme='#{$theme-name}'] & {
+      @content;
+    }
+  }
+}
+
+// 获取主题颜色
+@function get-color($color, $shade: 'mainColor', $map: $themes) {
+  // check color exists
+  @if (map-has-key($map, $color)) {
+    $value: map-get($map, unquote($color));
+    // check if color or map
+    @if type-of($value) == color {
+      // return color
+      @return $value;
+    }
+    // check shade of color exists
+    @if (map-has-key($value, $shade)) {
+      // return shade of color
+      @return map-get($value, $shade);
+    }
+  }
+  // else do nothing
+  @return null;
+}
+
+//从主题色map中取出对应颜色
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+//获取背景颜色
+@mixin background_color($color) {
+  @include themeify {
+    background-color: themed($color);
+  }
+}
