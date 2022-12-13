@@ -20,4 +20,4 @@ scripts:
   # - npm run lint
   - npm run build
   # - docker version
-  - ssh root@47.109.22.178
+  - ssh travis@47.109.22.178
