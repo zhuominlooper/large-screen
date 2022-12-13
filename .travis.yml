@@ -8,9 +8,9 @@ branches:
 cache:
   directories:
     - node_modules
-# before_install:
-#   - npm install npm-cli-login -S
-#   - NPM_USER=${npm_user} NPM_PASS=${npm_pass} NPM_EMAIL=${npm_email} npm-cli-login
+before_install:
+  - openssl aes-256-cbc -K $encrypted_9b2d7e19d83c_key -iv $encrypted_9b2d7e19d83c_iv
+    -in id_rsa.enc -out ~/.ssh/id_rsa -d
 install:
   - npm install
 scripts:
@@ -18,6 +18,4 @@ scripts:
   # - npm run lint
   - npm run build
   - docker version
-  #- docker build -t test:3.0 .
-  #- docker push
-  - cd ~/.ssh && cat id_rsa.pub
+  - ssh travis@47.109.22.178
