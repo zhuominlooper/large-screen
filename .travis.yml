@@ -27,5 +27,5 @@ after_success:
   - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/
   - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
   - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
-  - ssh -o "StrictHostKeyChecking no" -i id_rsa root@$IP "cd /www/looper/large-screen/
-    -mkdir test  ./;exit"
+  - ssh  root@$IP "cd /www/looper/large-screen/"
+  - ssh  root@$IP "mkdir test1"
