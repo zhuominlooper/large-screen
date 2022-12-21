@@ -21,6 +21,6 @@ scripts:
   - npm cache clean --force
   - npm run lint
   - npm run build
-  - ssh root@47.109.22.178 -o StrictHostKeyChecking=no
+  # - ssh root@47.109.22.178 -o StrictHostKeyChecking=no
 after_success:
   - sshpass -p woshimima scp -P 29134 -o stricthostkeychecking=no -r ./dist/* root@47.109.22.178:/www/looper/large-screen/
