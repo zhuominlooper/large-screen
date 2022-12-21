@@ -22,9 +22,13 @@ scripts:
   - npm cache clean --force
   - npm run lint
   - npm run build
+  - docker build . -t "large-screen:latest"
+  - docker login --username=looper卓敏 registry.cn-chengdu.aliyuncs.com
+  - docker tag 2.0 registry.cn-chengdu.aliyuncs.com/octoveau/large-screen:lastest
+  - docker push registry.cn-chengdu.aliyuncs.com/octoveau/large-screen:lastest
   # - ssh root@$IP -o StrictHostKeyChecking=no
 after_success:
-  - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/
-  - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
-  - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
-  - ssh  root@$IP "cd /www/looper/large-screen/;mkdir test1;exit"
+  # - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/
+  # - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
+  # - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
+  # - ssh  root@$IP "cd /www/looper/large-screen/;mkdir test1;exit"
