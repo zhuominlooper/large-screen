@@ -23,6 +23,7 @@ scripts:
   - npm run build
   # - ssh root@$IP -o StrictHostKeyChecking=no
 after_success:
+  - ssh -o StrictHostKeyChecking=no
   - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/
   - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
   - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
