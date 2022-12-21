@@ -23,5 +23,6 @@ scripts:
   - npm run build
   # - ssh root@47.109.22.178 -o StrictHostKeyChecking=no
 after_success:
-  - chmod 600 ~/.ssh/id_rsa
   - rsync -az --delete ./dist/* root@47.109.22.178:/www/looper/large-screen/
+  - rsync -az --delete ./bin/* root@47.109.22.178:/www/looper/large-screen/
+  - rsync -az --delete ./Dockerfile root@47.109.22.178:/www/looper/large-screen/
