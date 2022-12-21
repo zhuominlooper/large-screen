@@ -15,6 +15,7 @@ before_install:
     -in id_rsa.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
   - eval $(ssh-agent)
+  - echo -e "Host $IP\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
   - npm install
 scripts:
@@ -23,7 +24,6 @@ scripts:
   - npm run build
   # - ssh root@$IP -o StrictHostKeyChecking=no
 after_success:
-  - ssh -o "StrictHostKeyChecking no"
   - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/
   - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
   - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
