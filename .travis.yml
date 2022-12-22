@@ -22,12 +22,11 @@ scripts:
   - npm cache clean --force
   - npm run lint
   - npm run build
-  - docker build -t registry.cn-chengdu.aliyuncs.com/octoveau/large-screen:4.0 .
-  - docker login --username=looper卓敏 -p=zM1995625 registry.cn-chengdu.aliyuncs.com
-  - docker push registry.cn-chengdu.aliyuncs.com/octoveau/large-screen:4.0
+  - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/dist/
+  - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
+  - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
   # - ssh root@$IP -o StrictHostKeyChecking=no
 after_success:
-  # - rsync -az --delete ./dist/* root@$IP:/www/looper/large-screen/
-  # - rsync -az --delete ./bin/* root@$IP:/www/looper/large-screen/
-  # - rsync -az --delete ./Dockerfile root@$IP:/www/looper/large-screen/
-  # - ssh  root@$IP "cd /www/looper/large-screen/;mkdir test1;exit"
+  - ssh  root@$IP "cd /www/looper/large-screen/;docker build -t registry.cn-chengdu.aliyuncs.com/octoveau/large-screen:latest ."
+  - ssh  root@$IP "docker login --username=looper卓敏 -p=zM1995625 registry.cn-chengdu.aliyuncs.com"
+  - ssh  root@$IP "docker push registry.cn-chengdu.aliyuncs.com/octoveau/large-screen:latest"
