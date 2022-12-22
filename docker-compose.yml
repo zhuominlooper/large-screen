@@ -1,0 +1,8 @@
+version: "2"
+services:
+  large-screen:
+    build: .
+    image: registry.cn-chengdu.aliyuncs.com/octoveau/large-screen
+    ports:
+      - "8888:8080"
+    container_name: large-screen-container
