@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    22222
+    22222333
     <HeaderComp></HeaderComp>
     <MainComp></MainComp>
   </div>
