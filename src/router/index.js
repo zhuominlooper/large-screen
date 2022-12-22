@@ -13,7 +13,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: '/large-screen',
+  base: process.env.NODE_ENV === 'production' ? '/large-screen' : '/',
   routes,
 })
 

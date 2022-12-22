@@ -7,7 +7,7 @@
 
 <style scoped lang="scss">
 .main-setion {
-  background-image: linear-gradient(to bottom right, #ffffff, rgb(255, 255, 255));
+  background-image: linear-gradient(to bottom right, #43434b, rgb(13, 13, 14));
   min-width: 1440px;
   height: 100vh;
 }
