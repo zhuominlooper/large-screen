@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    44
     <HeaderComp></HeaderComp>
     <MainComp></MainComp>
   </div>

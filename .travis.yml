@@ -29,6 +29,6 @@ scripts:
   # - ssh root@$IP -o StrictHostKeyChecking=no
 after_success:
   - ssh  root@$IP "cd /www/looper/large-screen/;docker build -t registry.cn-chengdu.aliyuncs.com/octoveau/large-screen ."
-  - ssh  root@$IP "docker login --username=looper卓敏 -p=zM1995625 registry.cn-chengdu.aliyuncs.com"
+  - ssh  root@$IP "docker login --username=looper卓敏 -p=$pwd registry.cn-chengdu.aliyuncs.com"
   - ssh  root@$IP "docker push registry.cn-chengdu.aliyuncs.com/octoveau/large-screen"
   - ssh  root@$IP "cd /www/looper/large-screen/;docker-compose -f docker-compose.yml pull;docker-compose -f docker-compose.yml up -d;exit"
