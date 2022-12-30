@@ -1,5 +1,11 @@
 # 可视化航班大屏平台设计
 
+![build](https://app.travis-ci.com/zhuominlooper/large-screen.svg?branch=main&status=passed)
+![check](https://camo.githubusercontent.com/831ccb38bc0ef2619739df5c5d298511046f5a7a32e5cb86b90a5770406e74fc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636865636b732d70617373696e672d627269676874677265656e)
+
+![chat](https://camo.githubusercontent.com/029166d85f92969845201e59c3fcd8c8345556036155ff18140f6a9e796173a3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d677265656e)
+![author](https://camo.githubusercontent.com/7110f6a14e704d4f606f82d03fc5bdcdc7a686b42e8e63e676b1f579a7a4f3d8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f617574686f722d6c6f6f7065722e7a68756f2d6f72616e6765)
+
 **该平台采用了 echarts 和 echarts 社区的资源，展示了航班的可视化大屏数据呈现和航班的实时轨迹图，采用 flexible 做成响应式界面,axios 模拟获取远程数据进行渲染**
 
 ## 项目启动步骤
