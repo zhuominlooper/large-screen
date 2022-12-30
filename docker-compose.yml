@@ -2,7 +2,7 @@ version: "2"
 services:
   large-screen:
     build: .
-    image: registry.cn-chengdu.aliyuncs.com/octoveau/large-screen
+    image: registry.cn-chengdu.aliyuncs.com/looperzhuo/large-screen
     ports:
       - "8888:80"
     container_name: large-screen-container
